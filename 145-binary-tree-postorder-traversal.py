@@ -19,8 +19,8 @@ class Solution(object):
 
         while len(self.stack) > 0:
             node = self.stack.pop()
-            if node.val not in seen:
-                seen[node.val] = True
+            if node not in seen:
+                seen[node] = True
                 if node.right != None:
                     self.stack.append(node)
                     self.pushAllLeft(node.right)
@@ -29,10 +29,7 @@ class Solution(object):
             else:
                 output.append(node.val)
         return output
-
-
-
-
+                
     def pushAllLeft(self, node):
         while node != None:
             self.stack.append(node)
